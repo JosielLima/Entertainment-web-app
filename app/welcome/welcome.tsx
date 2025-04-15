@@ -1,5 +1,6 @@
 // import logoDark from "./logo-dark.svg";
 // import logoLight from "./logo-light.svg";
+import { Button } from "~/components/ui/button"
 
 export function Welcome() {
 	return (
@@ -8,6 +9,7 @@ export function Welcome() {
 				<div>Search for movies or TV series</div>
 				<div> Trending</div>
 				<div>Recommended for you</div>
+				<Button>Sign in</Button>
 			</div>
 		</main>
 	);
