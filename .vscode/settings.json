@@ -1,9 +1,0 @@
-{
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit"
-	},
-	//altera o formato de indentação e salva de prettier para typescript
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  }
-}
