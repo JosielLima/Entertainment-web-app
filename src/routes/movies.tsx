@@ -2,11 +2,14 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useQuery } from '@tanstack/react-query'
 // @ts-ignore
 import { getMoviesByYear } from '../services/api'
-import { Button } from "@/components/ui/button"
+import MediaCard from '../components/MediaCard'
 
 interface Movie {
   imdbID: string
-  Title: string
+  Title: string,
+  Poster: string,
+  Type: string,
+  Year: string
 }
 
 export const Route = createFileRoute('/movies')({
@@ -32,17 +35,23 @@ if (isError) return <>
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl mb-4">Página de filmes</h1>
+      <h1 className="text-2xl mb-4">Movies</h1>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
+        <div className="grid grid-cols-4 gap-4">
           {data.map((movie) => (
-            <li key={movie.imdbID}>{movie.Title}</li>
+            <MediaCard
+              key={movie.imdbID}
+              poster={movie.Poster}
+              title={movie.Title}
+              type={movie.Type}
+              year={movie.Year}
+              imdbID={movie.imdbID}
+            />
           ))}
-        </ul>
+        </div>
       )}
-      <Button>Teste</Button>
     </div>
   )
 }
