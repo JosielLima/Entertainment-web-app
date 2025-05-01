@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useQuery } from '@tanstack/react-query'
 // @ts-ignore
 import { getMoviesByYear } from '../services/api'
+import { Button } from "@/components/ui/button"
 
 interface Movie {
   imdbID: string
@@ -41,6 +42,7 @@ if (isError) return <>
           ))}
         </ul>
       )}
+      <Button>Teste</Button>
     </div>
   )
 }
