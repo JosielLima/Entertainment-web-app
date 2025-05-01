@@ -7,6 +7,7 @@
 body {
   @apply m-0;
   font-family:
+    'Outfit',
     -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -19,13 +20,18 @@ code {
 }
 
 :root {
-  --background: oklch(1 0 0);
+  --red: oklch(66 54.75 25.58);
+  --darkBlue: hsl(223,30%,9%);
+  --greyish-blue: hsl(223, 23%, 46%);
+  --semiDarkBlue: hsl(223, 36%, 14%);
+  --white: hsl(0, 0%, 100%);
+  --background: var(--darkBlue);
   --foreground: oklch(0.141 0.005 285.823);
-  --card: oklch(1 0 0);
+  --card: var(--darkBlue);
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(0.21 0.006 285.885);
+  --primary: var(--red);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.967 0.001 286.375);
   --secondary-foreground: oklch(0.21 0.006 285.885);
@@ -134,5 +140,6 @@ code {
   }
   body {
     @apply bg-background text-foreground;
+    color: var(--white);
   }
 }
