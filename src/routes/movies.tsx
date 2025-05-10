@@ -6,9 +6,9 @@ import MediaCard from '../components/MediaCard'
 
 interface Movie {
   imdbID: string
-  Title: string,
-  Poster: string,
-  Type: string,
+  Title: string
+  Poster: string
+  Type: string
   Year: string
 }
 
@@ -19,19 +19,19 @@ export const Route = createFileRoute('/movies')({
 function Movies() {
   const { data, isLoading, isError, error } = useQuery<Movie[]>({
     queryKey: ['trendingMovies'],
-    queryFn: () => getMoviesByYear("2025"),
+    queryFn: () => getMoviesByYear('2025'),
     initialData: [],
   })
 
+  if (isLoading) return <h3>Loading!</h3>
 
-if (isLoading) return <h3>Loading!</h3>
-
-if (isError) return <>
-  <h3>Error</h3>
-  <p>{error.toString()}</p>
-</>
-
-
+  if (isError)
+    return (
+      <>
+        <h3>Error</h3>
+        <p>{error.toString()}</p>
+      </>
+    )
 
   return (
     <div className="p-4">

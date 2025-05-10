@@ -1,4 +1,4 @@
-import iconMOvie from '../assets/icon-nav-movies.svg'
+import iconMovie from '../assets/icon-nav-movies.svg'
 
 interface DetailsProps {
   type: string
@@ -9,13 +9,11 @@ interface DetailsProps {
 export default function Details({ type, year, imdbID, title }: DetailsProps) {
   return (
     <div>
-      <div className="flex flex-row gap-2 opacity-75 mb-2">
-        <p>Year: {year}</p>
+      <div className="flex flex-row gap-2 opacity-75 mb-2 items-center">
+        <p>{year}</p>
         <span>•</span>
-        <span className="flex flex-row gap-1 align-center">
-          <img src={iconMOvie} alt="movie" className="w-4 h-4" />
-          <p> {type}</p>
-        </span>
+        <img src={iconMovie} alt="movie" className="w-4 h-4" />
+        <p> {type}</p>
         <span>•</span>
         <p>IMDB ID: {imdbID}</p>
       </div>

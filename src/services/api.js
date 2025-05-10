@@ -11,3 +11,9 @@ export async function getMoviesByYear(year) {
     const data = await response.json();
     return data.Search || [];
 }
+
+export async function getMovie(id) {
+    const response = await fetch(`${baseUrl}?apikey=${apiKey}&i=${id}`);
+    const data = await response.json();
+    return data;
+}
