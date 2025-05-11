@@ -8,6 +8,7 @@ interface MediaCardProps {
   type: string
   year: string
   imdbID: string
+  rated?: string
 }
 export default function MediaCard({
   poster,
@@ -15,6 +16,7 @@ export default function MediaCard({
   type,
   year,
   imdbID,
+  rated,
 }: MediaCardProps) {
   return (
     <Card className="border-0" id={imdbID}>
@@ -25,7 +27,7 @@ export default function MediaCard({
           className="w-full h-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-2/1 lg:aspect-square"
         />
       </AspectRatio>
-      <Details type={type} year={year} imdbID={imdbID} title={title} />
+      <Details type={type} year={year} rated={rated} title={title} />
     </Card>
   )
 }
