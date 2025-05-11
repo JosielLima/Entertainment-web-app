@@ -13,6 +13,13 @@ export async function getMoviesByYear(year:string) {
     return data.Search || [];
 }
 
+export async function getSeriesByYear(year:string) {
+    const response = await fetch(`${baseUrl}?apikey=${apiKey}&s=movie&type=series&y=${year}`);
+    const data = await response.json();
+    return data.Search || [];
+}
+
+
 export async function getContentId(id:string) {
     const response = await fetch(`${baseUrl}?apikey=${apiKey}&i=${id}`);
     const data = await response.json();
