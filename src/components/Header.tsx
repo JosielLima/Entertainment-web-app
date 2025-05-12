@@ -9,19 +9,19 @@ export default function Header() {
           <img src={Logo} alt="logo" />
         </div>
         <div className="px-2 font-bold">
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
         </div>
 
         <div className="px-2 font-bold">
           <Link to="/login">Login</Link>
         </div>
-         <div className="px-2 font-bold">
+        <div className="px-2 font-bold">
           <Link to="/bookmarked">Bookmarked</Link>
         </div>
-         <div className="px-2 font-bold">
+        <div className="px-2 font-bold">
           <Link to="/movies">Movies</Link>
         </div>
-         <div className="px-2 font-bold">
+        <div className="px-2 font-bold">
           <Link to="/tvseries">TV Series</Link>
         </div>
       </nav>

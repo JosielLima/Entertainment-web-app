@@ -14,8 +14,8 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as TvseriesImport } from './routes/tvseries'
 import { Route as MoviesImport } from './routes/movies'
 import { Route as LoginImport } from './routes/login'
+import { Route as HomeImport } from './routes/home'
 import { Route as BookmarkedImport } from './routes/bookmarked'
-import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
@@ -37,15 +37,15 @@ const LoginRoute = LoginImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const BookmarkedRoute = BookmarkedImport.update({
-  id: '/bookmarked',
-  path: '/bookmarked',
+const HomeRoute = HomeImport.update({
+  id: '/home',
+  path: '/home',
   getParentRoute: () => rootRoute,
 } as any)
 
-const IndexRoute = IndexImport.update({
-  id: '/',
-  path: '/',
+const BookmarkedRoute = BookmarkedImport.update({
+  id: '/bookmarked',
+  path: '/bookmarked',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -53,18 +53,18 @@ const IndexRoute = IndexImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
     '/bookmarked': {
       id: '/bookmarked'
       path: '/bookmarked'
       fullPath: '/bookmarked'
       preLoaderRoute: typeof BookmarkedImport
+      parentRoute: typeof rootRoute
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeImport
       parentRoute: typeof rootRoute
     }
     '/login': {
@@ -94,16 +94,16 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
   '/bookmarked': typeof BookmarkedRoute
+  '/home': typeof HomeRoute
   '/login': typeof LoginRoute
   '/movies': typeof MoviesRoute
   '/tvseries': typeof TvseriesRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/bookmarked': typeof BookmarkedRoute
+  '/home': typeof HomeRoute
   '/login': typeof LoginRoute
   '/movies': typeof MoviesRoute
   '/tvseries': typeof TvseriesRoute
@@ -111,8 +111,8 @@ export interface FileRoutesByTo {
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexRoute
   '/bookmarked': typeof BookmarkedRoute
+  '/home': typeof HomeRoute
   '/login': typeof LoginRoute
   '/movies': typeof MoviesRoute
   '/tvseries': typeof TvseriesRoute
@@ -120,24 +120,24 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bookmarked' | '/login' | '/movies' | '/tvseries'
+  fullPaths: '/bookmarked' | '/home' | '/login' | '/movies' | '/tvseries'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bookmarked' | '/login' | '/movies' | '/tvseries'
-  id: '__root__' | '/' | '/bookmarked' | '/login' | '/movies' | '/tvseries'
+  to: '/bookmarked' | '/home' | '/login' | '/movies' | '/tvseries'
+  id: '__root__' | '/bookmarked' | '/home' | '/login' | '/movies' | '/tvseries'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
   BookmarkedRoute: typeof BookmarkedRoute
+  HomeRoute: typeof HomeRoute
   LoginRoute: typeof LoginRoute
   MoviesRoute: typeof MoviesRoute
   TvseriesRoute: typeof TvseriesRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
   BookmarkedRoute: BookmarkedRoute,
+  HomeRoute: HomeRoute,
   LoginRoute: LoginRoute,
   MoviesRoute: MoviesRoute,
   TvseriesRoute: TvseriesRoute,
@@ -153,18 +153,18 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
         "/bookmarked",
+        "/home",
         "/login",
         "/movies",
         "/tvseries"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
-    },
     "/bookmarked": {
       "filePath": "bookmarked.tsx"
+    },
+    "/home": {
+      "filePath": "home.tsx"
     },
     "/login": {
       "filePath": "login.tsx"
