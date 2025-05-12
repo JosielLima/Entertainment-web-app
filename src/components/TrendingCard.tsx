@@ -19,15 +19,15 @@ export default function TrendingCard({
   rated,
 }: TrendingCardProps) {
   return (
-    <Card className="border-0 min-w-[400px] relative" id={imdbID}>
-      <AspectRatio ratio={16 / 9}>
+    <Card className="border-0 min-w-[470px] relative" id={imdbID}>
+      <AspectRatio ratio={3 / 2}>
         <img
           src={poster}
           alt={title}
-          className="w-full h-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-2/1 lg:aspect-square"
+          className="w-full h-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80"
         />
       </AspectRatio>
-      <div className="absolute left-8 right-0 bottom-8 ">
+      <div className="absolute left-8 right-0 bottom-8 bg-zinc-600/50  border-rounded-lg p-2">
         <Details type={type} year={year} rated={rated} title={title} />
       </div>
     </Card>
