@@ -14,22 +14,25 @@ export default function Header() {
         </div>
         <div className="flex flex-col gap-8">
           <div className="px-2 font-bold">
-            <Link to="/home">
+            <Link to="/home" className="opacity-50 [&.active]:opacity-100">
               <img src={HomeIcon} alt="Home" className="w-[32px]" />
             </Link>
           </div>
           <div className="px-2 font-bold">
-            <Link to="/bookmarked">
+            <Link
+              to="/bookmarked"
+              className="opacity-50 [&.active]:opacity-100"
+            >
               <img src={BookmarkIcon} alt="Bookmarked" className="w-[32px]" />
             </Link>
           </div>
           <div className="px-2 font-bold">
-            <Link to="/movies">
+            <Link to="/movies" className="opacity-50 [&.active]:opacity-100">
               <img src={MoviesIcon} alt="Movies" className="w-[32px]" />
             </Link>
           </div>
           <div className="px-2 font-bold">
-            <Link to="/tvseries">
+            <Link to="/tvseries" className="opacity-50 [&.active]:opacity-100">
               <img src={SeriesIcon} alt="TV Series" className="w-[32px]" />
             </Link>
           </div>

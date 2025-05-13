@@ -2,6 +2,7 @@ import { Outlet, createRootRouteWithContext } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
 import Header from '../components/Header'
+import SearchBar from '../components/SearchBar'
 
 import TanstackQueryLayout from '../integrations/tanstack-query/layout'
 
@@ -14,9 +15,12 @@ interface MyRouterContext {
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   component: () => (
     <>
-      <div className='flex flex-row'>
+      <div className="flex flex-row">
         <Header />
-        <Outlet />
+        <div>
+          <SearchBar />
+          <Outlet />
+        </div>
       </div>
       <TanStackRouterDevtools />
 

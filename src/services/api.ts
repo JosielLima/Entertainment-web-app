@@ -25,6 +25,11 @@ export async function getAllMedias() {
     return data.Search || [];
 }
 
+export async function getSearch(query:string) {
+    const response = await fetch(`${baseUrl}?apikey=${apiKey}&s=${query}`);
+    const data = await response.json();
+    return data.Search || [];
+}
 
 export async function getContentId(id:string) {
     const response = await fetch(`${baseUrl}?apikey=${apiKey}&i=${id}`);

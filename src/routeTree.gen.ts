@@ -16,6 +16,7 @@ import { Route as MoviesImport } from './routes/movies'
 import { Route as LoginImport } from './routes/login'
 import { Route as HomeImport } from './routes/home'
 import { Route as BookmarkedImport } from './routes/bookmarked'
+import { Route as SearchQueryImport } from './routes/search/$query'
 
 // Create/Update Routes
 
@@ -46,6 +47,12 @@ const HomeRoute = HomeImport.update({
 const BookmarkedRoute = BookmarkedImport.update({
   id: '/bookmarked',
   path: '/bookmarked',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SearchQueryRoute = SearchQueryImport.update({
+  id: '/search/$query',
+  path: '/search/$query',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -88,6 +95,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TvseriesImport
       parentRoute: typeof rootRoute
     }
+    '/search/$query': {
+      id: '/search/$query'
+      path: '/search/$query'
+      fullPath: '/search/$query'
+      preLoaderRoute: typeof SearchQueryImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -99,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/movies': typeof MoviesRoute
   '/tvseries': typeof TvseriesRoute
+  '/search/$query': typeof SearchQueryRoute
 }
 
 export interface FileRoutesByTo {
@@ -107,6 +122,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/movies': typeof MoviesRoute
   '/tvseries': typeof TvseriesRoute
+  '/search/$query': typeof SearchQueryRoute
 }
 
 export interface FileRoutesById {
@@ -116,14 +132,34 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/movies': typeof MoviesRoute
   '/tvseries': typeof TvseriesRoute
+  '/search/$query': typeof SearchQueryRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/bookmarked' | '/home' | '/login' | '/movies' | '/tvseries'
+  fullPaths:
+    | '/bookmarked'
+    | '/home'
+    | '/login'
+    | '/movies'
+    | '/tvseries'
+    | '/search/$query'
   fileRoutesByTo: FileRoutesByTo
-  to: '/bookmarked' | '/home' | '/login' | '/movies' | '/tvseries'
-  id: '__root__' | '/bookmarked' | '/home' | '/login' | '/movies' | '/tvseries'
+  to:
+    | '/bookmarked'
+    | '/home'
+    | '/login'
+    | '/movies'
+    | '/tvseries'
+    | '/search/$query'
+  id:
+    | '__root__'
+    | '/bookmarked'
+    | '/home'
+    | '/login'
+    | '/movies'
+    | '/tvseries'
+    | '/search/$query'
   fileRoutesById: FileRoutesById
 }
 
@@ -133,6 +169,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   MoviesRoute: typeof MoviesRoute
   TvseriesRoute: typeof TvseriesRoute
+  SearchQueryRoute: typeof SearchQueryRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -141,6 +178,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   MoviesRoute: MoviesRoute,
   TvseriesRoute: TvseriesRoute,
+  SearchQueryRoute: SearchQueryRoute,
 }
 
 export const routeTree = rootRoute
@@ -157,7 +195,8 @@ export const routeTree = rootRoute
         "/home",
         "/login",
         "/movies",
-        "/tvseries"
+        "/tvseries",
+        "/search/$query"
       ]
     },
     "/bookmarked": {
@@ -174,6 +213,9 @@ export const routeTree = rootRoute
     },
     "/tvseries": {
       "filePath": "tvseries.tsx"
+    },
+    "/search/$query": {
+      "filePath": "search/$query.tsx"
     }
   }
 }
