@@ -5,7 +5,7 @@ import { useQuery, useQueries } from '@tanstack/react-query'
 // @ts-ignore
 import { getSeriesByYear, getContentId } from '../services/api'
 import MediaCard from '../components/MediaCard' // Assuming MediaCard will accept a 'rated' prop
-
+import { SkeletonGrid } from '@/components/SkeletonGrid'
 // Interface for the basic series structure from getSeriesByYear
 interface Series {
   imdbID: string
@@ -50,7 +50,7 @@ function TvSeries() {
 
   // Handle loading state for the initial series list
   if (seriesQuery.isLoading) {
-    return <h3>Loading series list...</h3>
+    return <SkeletonGrid />
   }
 
   // Handle error state for the initial series list
@@ -70,7 +70,7 @@ function TvSeries() {
     seriesQuery.data.length > 0 &&
     detailedSeriesQueries.some((query) => query.isLoading)
   if (areDetailsLoading) {
-    return <h3>Loading series details...</h3>
+    return <SkeletonGrid />
   }
 
   // Handle error state for detailed series information (optional: more granular error display)

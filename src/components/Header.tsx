@@ -39,7 +39,11 @@ export default function Header() {
           </div>
         </div>
         <div>
-          <img src={Avatar} alt="Avatar" className="w-[32px]" />
+          <img
+            src={Avatar}
+            alt="Avatar"
+            className="w-[2rem] border-2 border-white rounded-full"
+          />
         </div>
       </nav>
     </header>

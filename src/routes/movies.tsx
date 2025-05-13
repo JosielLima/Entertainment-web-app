@@ -5,7 +5,7 @@ import { useQuery, useQueries } from '@tanstack/react-query'
 // @ts-ignore
 import { getMoviesByYear, getContentId } from '../services/api'
 import MediaCard from '../components/MediaCard' // Assuming MediaCard will accept a 'rated' prop
-
+import { SkeletonGrid } from '@/components/SkeletonGrid'
 // Interface for the basic movie structure from getMoviesByYear
 interface Movie {
   imdbID: string
@@ -50,7 +50,7 @@ function Movies() {
 
   // Handle loading state for the initial movie list
   if (moviesQuery.isLoading) {
-    return <h3>Loading movies list...</h3>
+    return <SkeletonGrid />
   }
 
   // Handle error state for the initial movie list
@@ -70,7 +70,7 @@ function Movies() {
     moviesQuery.data.length > 0 &&
     detailedMoviesQueries.some((query) => query.isLoading)
   if (areDetailsLoading) {
-    return <h3>Loading movie details...</h3>
+    return <div />
   }
 
   // Handle error state for detailed movie information (optional: more granular error display)
