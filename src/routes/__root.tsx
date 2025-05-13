@@ -15,7 +15,7 @@ interface MyRouterContext {
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   component: () => (
     <>
-      <div className="flex flex-row min-h-screen ">
+      <div className="flex md:flex-row min-h-screen flex-col">
         <Header />
         <div className="w-full flex-1">
           <SearchBar />

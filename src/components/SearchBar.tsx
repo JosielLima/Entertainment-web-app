@@ -17,7 +17,7 @@ export default function SearchBar() {
   }
 
   return (
-    <div className="flex items-center justify-between bg-zinc-800 rounded-lg p-2 mt-2 ml-2">
+    <div className="flex items-center justify-between bg-zinc-800 rounded-lg p-2 mt-4 ml-2">
       <Link
         to="/search/$query"
         params={{ query: searchTerm }}
