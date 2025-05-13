@@ -10,16 +10,25 @@ export const Route = createFileRoute('/search/$query')({
   component: RouteComponent,
 })
 
+interface SearchResult {
+  imdbID: string
+  Title: string
+  Poster: string
+  Type: string
+  Year: string
+  Rated?: string
+}
+
 function RouteComponent() {
   const { query } = Route.useParams()
-  const results = Route.useLoaderData()
+  const results = Route.useLoaderData() as SearchResult[]
   return (
     <div className="p-4">
       <h1 className="text-2xl mb-4">
         Found {results.length} results for {query}
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {results.map((result) => (
+        {results.map((result: SearchResult) => (
           <MediaCard
             key={result.imdbID}
             poster={result.Poster}
