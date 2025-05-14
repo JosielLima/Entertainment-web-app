@@ -6,6 +6,7 @@ import { useQuery, useQueries } from '@tanstack/react-query'
 import { getAllMedias, getContentId, getMoviesByYear } from '../services/api'
 import MediaCard from '../components/MediaCard'
 import TrendingCard from '../components/TrendingCard'
+import { SkeletonGrid } from '@/components/SkeletonGrid'
 
 // Interface for the basic movie structure from getMoviesByYear
 interface AllMedia {
@@ -65,7 +66,7 @@ function Movies() {
 
   // Handle loading state for the initial movie list
   if (allMediaQuery.isLoading && trendingQuery.isLoading) {
-    return <h3>Loading movies list...</h3>
+    return <SkeletonGrid />
   }
 
   // Handle error state for the initial movie list
