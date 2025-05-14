@@ -17,7 +17,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
     <>
       <div className="flex md:flex-row min-h-screen flex-col">
         <Header />
-        <div className="w-full flex-1">
+        <div>
           <SearchBar />
           <Outlet />
         </div>

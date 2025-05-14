@@ -161,7 +161,7 @@ function Movies() {
             <p>No movies found.</p>
           ) : (
             <div>
-              <ScrollArea className="max-w-[calc(100vw-160px)] whitespace-nowrap">
+              <ScrollArea className="w-screen md:max-w-[calc(100vw-160px)] whitespace-nowrap">
                 <div className="flex w-max space-x-4">
                   {combinedTrendingData.map((movie) => (
                     <div className="shrink-0" key={movie.imdbID}>

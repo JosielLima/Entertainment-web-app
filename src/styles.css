@@ -203,3 +203,7 @@ code {
     color: var(--white);
   }
 }
+
+#app {
+  width: 100%;
+}

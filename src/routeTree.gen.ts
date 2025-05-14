@@ -13,7 +13,6 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as TvseriesImport } from './routes/tvseries'
 import { Route as MoviesImport } from './routes/movies'
-import { Route as LoginImport } from './routes/login'
 import { Route as HomeImport } from './routes/home'
 import { Route as BookmarkedImport } from './routes/bookmarked'
 import { Route as SearchQueryImport } from './routes/search/$query'
@@ -29,12 +28,6 @@ const TvseriesRoute = TvseriesImport.update({
 const MoviesRoute = MoviesImport.update({
   id: '/movies',
   path: '/movies',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const LoginRoute = LoginImport.update({
-  id: '/login',
-  path: '/login',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -74,13 +67,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeImport
       parentRoute: typeof rootRoute
     }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginImport
-      parentRoute: typeof rootRoute
-    }
     '/movies': {
       id: '/movies'
       path: '/movies'
@@ -110,7 +96,6 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/bookmarked': typeof BookmarkedRoute
   '/home': typeof HomeRoute
-  '/login': typeof LoginRoute
   '/movies': typeof MoviesRoute
   '/tvseries': typeof TvseriesRoute
   '/search/$query': typeof SearchQueryRoute
@@ -119,7 +104,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/bookmarked': typeof BookmarkedRoute
   '/home': typeof HomeRoute
-  '/login': typeof LoginRoute
   '/movies': typeof MoviesRoute
   '/tvseries': typeof TvseriesRoute
   '/search/$query': typeof SearchQueryRoute
@@ -129,7 +113,6 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/bookmarked': typeof BookmarkedRoute
   '/home': typeof HomeRoute
-  '/login': typeof LoginRoute
   '/movies': typeof MoviesRoute
   '/tvseries': typeof TvseriesRoute
   '/search/$query': typeof SearchQueryRoute
@@ -140,23 +123,15 @@ export interface FileRouteTypes {
   fullPaths:
     | '/bookmarked'
     | '/home'
-    | '/login'
     | '/movies'
     | '/tvseries'
     | '/search/$query'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/bookmarked'
-    | '/home'
-    | '/login'
-    | '/movies'
-    | '/tvseries'
-    | '/search/$query'
+  to: '/bookmarked' | '/home' | '/movies' | '/tvseries' | '/search/$query'
   id:
     | '__root__'
     | '/bookmarked'
     | '/home'
-    | '/login'
     | '/movies'
     | '/tvseries'
     | '/search/$query'
@@ -166,7 +141,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   BookmarkedRoute: typeof BookmarkedRoute
   HomeRoute: typeof HomeRoute
-  LoginRoute: typeof LoginRoute
   MoviesRoute: typeof MoviesRoute
   TvseriesRoute: typeof TvseriesRoute
   SearchQueryRoute: typeof SearchQueryRoute
@@ -175,7 +149,6 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   BookmarkedRoute: BookmarkedRoute,
   HomeRoute: HomeRoute,
-  LoginRoute: LoginRoute,
   MoviesRoute: MoviesRoute,
   TvseriesRoute: TvseriesRoute,
   SearchQueryRoute: SearchQueryRoute,
@@ -193,7 +166,6 @@ export const routeTree = rootRoute
       "children": [
         "/bookmarked",
         "/home",
-        "/login",
         "/movies",
         "/tvseries",
         "/search/$query"
@@ -204,9 +176,6 @@ export const routeTree = rootRoute
     },
     "/home": {
       "filePath": "home.tsx"
-    },
-    "/login": {
-      "filePath": "login.tsx"
     },
     "/movies": {
       "filePath": "movies.tsx"

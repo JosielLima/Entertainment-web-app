@@ -21,7 +21,7 @@ export default function MediaCard({
   rated,
 }: MediaCardProps) {
   return (
-    <Card className="border-0 relative" id={imdbID}>
+    <Card className="border-0 relative max-w-md" id={imdbID}>
       <AspectRatio ratio={16 / 9}>
         <img
           src={poster}
