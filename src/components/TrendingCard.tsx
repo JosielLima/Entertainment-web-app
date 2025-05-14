@@ -27,7 +27,7 @@ export default function TrendingCard({
           className="w-full h-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80"
         />
       </AspectRatio>
-      <div className="absolute left-8 right-0 bottom-8 bg-zinc-600/50  border-rounded-lg p-2">
+      <div className="absolute left-0 right-0 bottom-6  bg-zinc-600/50  border-rounded-lg p-2 pl-6">
         <Details type={type} year={year} rated={rated} title={title} />
       </div>
     </Card>
