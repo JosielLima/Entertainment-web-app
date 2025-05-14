@@ -1,4 +1,8 @@
-import { Outlet, createRootRouteWithContext } from '@tanstack/react-router'
+import {
+  Outlet,
+  createRootRouteWithContext,
+  redirect,
+} from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
 import Header from '../components/Header'
@@ -27,4 +31,14 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       <TanstackQueryLayout />
     </>
   ),
+  // Adicione esta parte para redirecionar a rota raiz
+  beforeLoad: async ({ location }) => {
+    // Se estiver na rota raiz exata, redirecione para /home
+    if (location.pathname === '/') {
+      throw redirect({
+        to: '/home',
+        replace: true,
+      })
+    }
+  },
 })
