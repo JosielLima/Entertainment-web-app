@@ -109,7 +109,7 @@ function TvSeries() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl mb-4">TV Series</h1>
+      <h1 className="text-4xl mb-4">TV Series</h1>
       {combinedSeriesData.length === 0 &&
       !seriesQuery.isLoading &&
       !areDetailsLoading ? (

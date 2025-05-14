@@ -17,7 +17,7 @@ export default function SearchBar() {
   }
 
   return (
-    <div className="flex items-center justify-between bg-zinc-800 rounded-lg p-2 mt-4 ml-2 w-[calc(100% - 2rem)]">
+    <div className="flex items-center justify-between bg-primary-foreground rounded-lg p-2 mt-4 ml-2 w-[calc(100% - 2rem)]">
       <Link
         to="/search/$query"
         params={{ query: searchTerm }}
@@ -30,7 +30,7 @@ export default function SearchBar() {
       </Link>
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Search for movies or TV series"
         className="bg-transparent text-white focus:outline-none focus:border-b-2 focus:border-white w-full"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}

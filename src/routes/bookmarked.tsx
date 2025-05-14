@@ -66,7 +66,7 @@ function Bookmarked() {
         <>
           {/* Seção de Filmes */}
           <section>
-            <h2 className="text-2xl font-semibold mb-4">Bookmarked Movies</h2>
+            <h2 className="text-4xl font-semibold mb-4">Bookmarked Movies</h2>
             {bookmarkedMovies.length === 0 ? (
               <p className="text-gray-400 mb-6">No bookmarked movies yet.</p>
             ) : (
@@ -88,7 +88,7 @@ function Bookmarked() {
 
           {/* Seção de Séries */}
           <section>
-            <h2 className="text-2xl font-semibold mb-4">
+            <h2 className="text-4xl font-semibold mb-4">
               Bookmarked TV Series
             </h2>
             {bookmarkedSeries.length === 0 ? (

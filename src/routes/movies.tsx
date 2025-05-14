@@ -109,7 +109,7 @@ function Movies() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl mb-4">Movies</h1>
+      <h1 className="text-4xl mb-4">Movies</h1>
       {combinedMoviesData.length === 0 &&
       !moviesQuery.isLoading &&
       !areDetailsLoading ? (

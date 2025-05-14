@@ -153,7 +153,7 @@ function Movies() {
   return (
     <div>
       <div className="p-4">
-        <h1 className="text-2xl mb-4">Trending</h1>
+        <h1 className="text-4xl mb-4">Trending</h1>
         <div className="flex flex-nowrap flex-row">
           {combinedTrendingData.length === 0 &&
           !allMediaQuery.isLoading &&
@@ -183,7 +183,7 @@ function Movies() {
         </div>
       </div>
       <div className="p-4">
-        <h1 className="text-2xl mb-4">Recommended for you</h1>
+        <h1 className="text-4xl mb-4">Recommended for you</h1>
         {combinedMediasData.length === 0 &&
         !allMediaQuery.isLoading &&
         !areDetailsLoading ? (

@@ -37,11 +37,11 @@ code {
     oklch(0.145 0 0);
    --primary: var(--red);
   --primary-foreground:
-    oklch(0.985 0 0);
+    var(--darkBlue)
   --secondary:
-    oklch(0.97 0 0);
+    var(--semiDarkBlue);
   --secondary-foreground:
-    oklch(0.205 0 0);
+    var(--greyish-blue);
   --muted:
     oklch(0.97 0 0);
   --muted-foreground:
@@ -193,6 +193,7 @@ code {
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
+
 
 @layer base {
   * {

@@ -8,12 +8,12 @@ import Avatar from '../assets/image-avatar.png'
 
 export default function Header() {
   return (
-    <header className="px-6 flex gap-2 bg-zinc-800 justify-between rounded-lg my-4 ml-2 py-4 h-4/6">
+    <header className="px-6 flex gap-2 bg-gray-800 justify-between rounded-lg my-4 ml-2 py-4 md:h-[calc(100vh-1rem)]">
       <nav className="flex flex-row md:flex-col gap-8 items-center justify-between w-full">
         <div>
           <Logo />
         </div>
-        <div className="flex flex-row md:flex-col gap-2 sm:gap-8 flex-1 items-center justify-center md:justify-start  ">
+        <div className="flex flex-row md:flex-col gap-2 sm:gap-8 flex-1 items-center justify-center md:justify-start  md:mt-16 ">
           <div className="font-bold  w-fit">
             <Link
               to="/home"
@@ -47,7 +47,7 @@ export default function Header() {
             </Link>
           </div>
         </div>
-        <div className="md:mt-80">
+        <div className="md:mt-96">
           <img
             src={Avatar}
             alt="Avatar"
