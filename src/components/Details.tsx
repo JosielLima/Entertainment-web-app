@@ -22,7 +22,7 @@ export default function Details({ type, year, rated, title }: DetailsProps) {
         <span>•</span>
         <p>{rated}</p>
       </div>
-      <h2 className="text-xl">{title}</h2>
+      <h2 className="text-xl overflow-hidden">{title}</h2>
     </div>
   )
 }

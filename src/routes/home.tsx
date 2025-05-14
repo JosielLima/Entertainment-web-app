@@ -7,6 +7,7 @@ import { getAllMedias, getContentId, getMoviesByYear } from '../services/api'
 import MediaCard from '../components/MediaCard'
 import TrendingCard from '../components/TrendingCard'
 import { SkeletonGrid } from '@/components/SkeletonGrid'
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 
 // Interface for the basic movie structure from getMoviesByYear
 interface AllMedia {
@@ -153,24 +154,30 @@ function Movies() {
     <div>
       <div className="p-4">
         <h1 className="text-2xl mb-4">Trending</h1>
-        <div className="flex flex-nowrap flex-row overflow-x-auto max-w-[calc(100vw-180px)] gap-2">
+        <div className="flex flex-nowrap flex-row">
           {combinedTrendingData.length === 0 &&
           !allMediaQuery.isLoading &&
           !areDetailsTrendingLoading ? (
             <p>No movies found.</p>
           ) : (
-            <div className="flex flex-nowrap flex-row overflow-x-auto gap-2">
-              {combinedTrendingData.map((movie) => (
-                <TrendingCard
-                  key={movie.imdbID}
-                  poster={movie.Poster}
-                  title={movie.Title}
-                  type={movie.Type}
-                  year={movie.Year}
-                  imdbID={movie.imdbID}
-                  rated={movie.Rated} // Pass the 'Rated' property to MediaCard
-                />
-              ))}
+            <div>
+              <ScrollArea className="max-w-[calc(100vw-160px)] whitespace-nowrap">
+                <div className="flex w-max space-x-4">
+                  {combinedTrendingData.map((movie) => (
+                    <div className="shrink-0" key={movie.imdbID}>
+                      <TrendingCard
+                        poster={movie.Poster}
+                        title={movie.Title}
+                        type={movie.Type}
+                        year={movie.Year}
+                        imdbID={movie.imdbID}
+                        rated={movie.Rated} // Pass the 'Rated' property to MediaCard
+                      />
+                    </div>
+                  ))}
+                </div>
+                <ScrollBar orientation="horizontal" />
+              </ScrollArea>
             </div>
           )}
         </div>

@@ -21,7 +21,7 @@ export default function TrendingCard({
   rated,
 }: TrendingCardProps) {
   return (
-    <Card className="border-0 min-w-[470px] relative" id={imdbID}>
+    <Card className="border-0 w-[360px] md:w-[440px] relative" id={imdbID}>
       <AspectRatio ratio={3 / 2}>
         <img
           src={poster}

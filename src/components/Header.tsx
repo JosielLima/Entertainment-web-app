@@ -8,7 +8,7 @@ import Avatar from '../assets/image-avatar.png'
 
 export default function Header() {
   return (
-    <header className="px-6 flex gap-2 bg-zinc-800 justify-between rounded-lg my-4 ml-2 py-4 ">
+    <header className="px-6 flex gap-2 bg-zinc-800 justify-between rounded-lg my-4 ml-2 py-4 h-4/6">
       <nav className="flex flex-row md:flex-col gap-16 items-center justify-between w-full">
         <div>
           <Logo />
